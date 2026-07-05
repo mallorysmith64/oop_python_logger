@@ -4,39 +4,34 @@ class Logger:
         self.history = []
 
     def log(self, level, message):
-        print(f"Log Message: {level} - {message}")
-        self.history.append(message)
-        print(f"History: {self.history}")
+        logged_entry = f"{self.name} - {level} - {message}"
+        self.history.append(logged_entry)
         
-    def debug(self,level):
-        print(f"Debug: {level}")
+    def debug(self,message):
+        self.log("Debug", message)
         
-    def info(self, level):
-        print(f"Info: {level}")
+    def info(self, message):
+        self.log("Info", message)
         
-    def warning(self, level):
-        print(f"Warning: {level}")
+    def warning(self, message):
+        self.log("Warning", message)
         
-    def error(self, level):
-        print(f"Error: {level}")
+    def error(self, message):
+        self.log("Error", message)
         
-    def critical(self, level):
-        print(f"Critical: {level}")
-        
-    def format(self, name, level, message):
-        return f"{name} - {level} - {message}"
+    def critical(self, message):
+        self.log("Critical", message)
     
     def show_history(self):
         for entry in self.history:
             print(f"{entry}")
         
 logging = Logger("SimpleLogger")
-log_message = logging.log("Warning", "Error: Something went wrong!")
-debug_logging = logging.debug("Debug")
-info_logging = logging.info("Info")
-warn_logging = logging.warning("Warning")
-error_logging = logging.error("Error")
-critical_logging = logging.critical("Critical")
-formatted_message = logging.format("SimpleLogger", "INFO", "Formatted log message")
+
+debug_logging = logging.debug("Debug message")
+info_logging = logging.info("Information message")
+warn_logging = logging.warning("Something went wrong!")
+error_logging = logging.error("An error occurred")
+critical_logging = logging.critical("A critical message occurred")
 
 logging.show_history()
