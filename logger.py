@@ -33,7 +33,14 @@ class Logger:
             writer = csv.writer(file)
             writer.writerow(["logger", "level", "message"])
             writer.writerows(self.history)
-        
+   
+    def entry_count(self):
+        count = 0
+        for _ in self.history:
+            count += 1
+        print(f"Total log entries: {count}")
+        return count
+
 logging = Logger("SimpleLogger")
 
 debug_logging = logging.debug("Debug message")
@@ -44,3 +51,4 @@ critical_logging = logging.critical("A critical message occurred")
 
 logging.show_history()
 writer_logging = logging.to_csv()
+entry_count_logging = logging.entry_count()
