@@ -1,0 +1,6 @@
+logger,level,message
+SimpleLogger - Debug - Debug message
+SimpleLogger - Info - Information message
+SimpleLogger - Warning - Something went wrong!
+SimpleLogger - Error - An error occurred
+SimpleLogger - Critical - A critical message occurred
