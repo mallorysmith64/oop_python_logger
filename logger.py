@@ -24,9 +24,10 @@ class Logger:
     def critical(self, message):
         self.log("Critical", message)
     
+    #using generator to show history of log entries to avoid loading all entries into memory at once
     def show_history(self):
         for entry in self.history:
-            print(f"{entry}")
+            yield entry
             
     def to_csv(self):
         with open(self.filename, "w", newline="") as file:
